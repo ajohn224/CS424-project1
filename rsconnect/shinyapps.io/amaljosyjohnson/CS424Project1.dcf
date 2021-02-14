@@ -1,0 +1,13 @@
+name: CS424Project1
+title: CS424Project1
+username:
+account: amaljosyjohnson
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3633946
+bundleId: 4219930
+url: https://amaljosyjohnson.shinyapps.io/CS424Project1/
+when: 1613265449.44146
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: .annual_generation_state.xls.icloud|Jupyter Scavenger Hunt.ipynb|Project1.ipynb|.ipynb_checkpoints/Jupyter Scavenger Hunt-checkpoint.ipynb|.ipynb_checkpoints/Project1-checkpoint.ipynb
