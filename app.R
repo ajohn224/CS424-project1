@@ -7,9 +7,7 @@ library(usmap)
 library(data.table)
 library(plyr)
 library("stringr")
-
-
-
+library(stringr)
 
 
 
@@ -262,23 +260,17 @@ ui<- fluidPage(
                ),
     
       tabPanel(title="US HeatMap Visual",
-               fluidRow(
-                 shinydashboard::box( title = "The amount of each energy source per year from 1990 - 2019", solidHeader = TRUE, status = "primary", width = 12,
-                      splitLayout(cellWidths = c("50%", "50%"), plotOutput("plotSix", height = 200),
-                                  plotOutput("plotSix1", height = 200)
-)
-                      
-                 )
-               ),
-fluidRow(
-  shinydashboard::box( title = "The percent of each energy source per year from 1990 - 2019", solidHeader = TRUE, status = "primary", width = 12,
-       splitLayout(cellWidths = c("50%", "50%"), plotOutput("plotSeven", height = 200),
-                   plotOutput("plotSeven1", height = 200)
-       )
-       
-  )
-)
 
+          
+          
+          
+         plotOutput("plotSix"),
+          plotOutput("plotSeven")
+            
+          
+          
+          
+          
               
                    
                ),
@@ -595,13 +587,15 @@ output$plotSix <- renderPlot({
 
   reactiveFunc <-  myReactiveFunc()
 
-
  
     plot_usmap(data = reactiveFunc, values = "GENERATION..Megawatthours.",labels=TRUE, color = "red",exclude="DC") + 
-      scale_fill_continuous(low = "lightyellow", high = "red", name = "Amount of Energy Source", label = scales::comma) + 
-      theme(legend.position = "right")
+      labs(title = "The Amount of the Total Production for Each Energy SourcePer Year From 1990 - 2019")+
+    scale_fill_continuous(low = "lightyellow", high = "red", name = "Amount of Energy Source", label = scales::comma) + 
+    theme(legend.position = "right")
    
 })
+
+
 output$plotSix1 <- renderPlot({
   
   reactiveFunc <-  myReactiveFunc1()
@@ -621,6 +615,7 @@ output$plotSeven <- renderPlot({
   
 
  plot_usmap(data = reactiveFunc, values = "percent",labels=TRUE, color = "red",exclude="DC") + 
+   labs(title = "The Percent of the Total Production for Each Energy SourcePer Year From 1990 - 2019")+
     scale_fill_continuous(low = "lightyellow", high = "red", name = "Percent of Energy Source", label = scales::percent_format(scale = 100 )) + 
     theme(legend.position = "right")
   
@@ -634,6 +629,8 @@ output$plotSeven1 <- renderPlot({
   
   
   plot_usmap(data = reactiveFunc, values = "percent",labels=TRUE, color = "red",exclude="DC") + 
+    labs(title = "The Percent of the Total Production for Each Energy SourcePer Year From 1990 - 2019")+
+         
     scale_fill_continuous(low = "lightyellow", high = "red", name = "Percent of Energy Source", label = scales::percent_format(scale = 100 )) + 
     theme(legend.position = "right")
   
